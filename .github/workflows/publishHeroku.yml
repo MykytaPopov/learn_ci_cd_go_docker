@@ -1,0 +1,16 @@
+name: Build and Publish to the DockerHub
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        
+      - name: Greeting heroku world
+        run: echo "hello heroku world"

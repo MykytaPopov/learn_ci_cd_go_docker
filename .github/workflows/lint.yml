@@ -1,4 +1,4 @@
-name: lint
+name: Lint
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: install go
+      - name: Install go
         uses: actions/setup-go@v2
         with:
           go-version: "1.17.1"
