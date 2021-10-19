@@ -1,4 +1,4 @@
-name: Publish DockerHub
+name: Publish heroku
 
 on:
   push:
