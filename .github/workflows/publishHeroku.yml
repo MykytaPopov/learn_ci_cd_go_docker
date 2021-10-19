@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  greeting:
+  greeting2:
     runs-on: ubuntu-latest
 
     steps:
