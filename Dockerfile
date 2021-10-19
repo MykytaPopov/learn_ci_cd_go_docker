@@ -4,7 +4,7 @@ RUN mkdir /app
 ADD . /app
 WORKDIR /app
 
-RUN go clean --modecache
+RUN go clean -i
 RUN go build -o main .
 
 CMD [ "/app/main" ]
