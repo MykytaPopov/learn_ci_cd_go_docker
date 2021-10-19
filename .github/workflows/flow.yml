@@ -50,8 +50,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Greeting docker world
-        run: echo "hello docker world"
+      - name: Build & push Docker image
+        uses: mr-smithers-excellent/docker-build-push@v5
+        with:
+          image: mykytapopov/learn_ci_cd_go_docker
+          registry: docker.io
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
   publish-heroku:
     needs: test
