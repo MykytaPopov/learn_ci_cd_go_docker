@@ -43,6 +43,8 @@ jobs:
         run: go test ./...
 
   publish-dockerhub:
+    needs: test
+
     runs-on: ubuntu-latest
 
     steps:
@@ -52,6 +54,8 @@ jobs:
         run: echo "hello docker world"
 
   publish-heroku:
+    needs: test
+
     runs-on: ubuntu-latest
 
     steps:
