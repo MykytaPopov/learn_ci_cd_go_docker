@@ -16,7 +16,11 @@ func main() {
 
 	router.Use(static.Serve("/", static.LocalFile("./views", true)))
 
-	router.Run()
+	err := router.Run()
+
+	if err != nil {
+		panic("sad goopher")
+	}
 }
 
 func getPong() string {

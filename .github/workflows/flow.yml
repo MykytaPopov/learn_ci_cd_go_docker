@@ -21,10 +21,7 @@ jobs:
           go-version: "1.17.1"
 
       - name: Run linting code
-        run: |
-          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.26.0
-
-          golangci-lint run
+        run: golangci-lint run
 
   test:
     needs: lint
@@ -75,10 +72,10 @@ jobs:
           # If you don't want to use repository secrets (which is recommended) you can do:
           # email: my.email@example.com
           email: ${{ secrets.HEROKU_EMAIL }}
-          
+
           # Heroku API key associated with provided user's email.
           # Api Key is available under your Heroku account settings.
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          
+
           # Name of the heroku application to which the build is to be sent.
-          heroku_app_name: ${{ secrets.DOCKER_APP_NAME }}         
+          heroku_app_name: ${{ secrets.DOCKER_APP_NAME }}
