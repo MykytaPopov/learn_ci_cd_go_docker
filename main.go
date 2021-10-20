@@ -1,14 +1,24 @@
 package main
 
-import "fmt"
-
-var version = "dev"
+import (
+	"github.com/gin-gonic/contrib/static"
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
-	fmt.Printf("Version: %s\n", version)
-	fmt.Println(hello())
+	router := gin.Default()
+
+	router.GET("/ping", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": getPong(),
+		})
+	})
+
+	router.Use(static.Serve("/", static.LocalFile("./views", true)))
+
+	router.Run()
 }
 
-func hello() string {
-	return "Hello GoLang"
+func getPong() string {
+	return "pong"
 }
